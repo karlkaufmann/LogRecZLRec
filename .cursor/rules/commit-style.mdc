@@ -1,0 +1,10 @@
+---
+description: Commit messages — short, factual; no secrets in messages or diffs.
+alwaysApply: true
+---
+
+# Commit style
+
+- Use short, factual commit messages (imperative mood, one line when possible).
+- Do not put API keys, tokens, passwords, internal URLs with credentials, or other secrets in commit messages or anywhere in the diff.
+- If fixing a sensitive mistake, rotate the secret elsewhere; never describe the secret value in the message.

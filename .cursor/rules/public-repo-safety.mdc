@@ -1,0 +1,22 @@
+---
+description: Public repo safety — never commit data, model binaries, or secrets; allowlist-only commits.
+alwaysApply: true
+---
+
+# Public repository safety
+
+## Hard rules
+
+- Never commit data files (CSV, archives, Parquet, Feather, raw exports) or model binaries (pickle, joblib, ONNX, PyTorch, HDF5, serialized ranker dumps).
+- Allowed by default for publication: Jupyter notebooks (`*.ipynb`), evaluation scripts such as `evaluate_model.py`, documentation (`README.md`, evaluation markdown per project conventions), `.gitignore`, Cursor rules under `.cursor/rules/`, and the packaging skill at `.agent/skills/public-repo-packaging/SKILL.md`.
+
+## Before every commit
+
+1. Run `git status` and inspect staged files.
+2. Compare staged paths against the denylist in `.gitignore` and the public-repo-packaging skill (same patterns: data, archives, model formats, DBs, secrets, ignored dirs).
+3. If anything staged matches the denylist or is outside the intentional allowlist for this repo, **unstage it** (`git restore --staged <path>`) and **stop** — do not complete the commit until only safe files remain.
+4. Confirm the final file list with the user when the change set is large or ambiguous.
+
+## If unsure
+
+Prefer not to add the file. Ask or extend `.gitignore` first rather than risking a data or model leak.

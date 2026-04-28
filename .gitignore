@@ -1,0 +1,34 @@
+# Data and archives
+*.csv
+*.zip
+*.gz
+*.7z
+*.parquet
+*.feather
+
+# Model binaries and serialized weights
+*.pkl
+*.joblib
+*.onnx
+*.pt
+*.h5
+*_model.txt
+lgbm_ranker_model.txt
+
+# Local databases
+*.db
+*.sqlite
+
+# Secrets and environment
+.env
+*.key
+*.pem
+*.secrets*
+
+# Directories (datasets, env, cache)
+data/
+datasets/
+raw/
+exports/
+venv/
+__pycache__/
